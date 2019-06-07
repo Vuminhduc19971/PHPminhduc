@@ -1,11 +1,15 @@
 <?php
+echo "<pre>";
+print_r($_POST);
+echo "</pre>";
 include_once "config.php";
-if (isset($_POST['id']) && isset($_POST['name']) && isset($_POST['address']) && isset($_POST['salary'])) {
-    if ($_POST['name'] && $_POST['address'] && ($_POST['salary'] > 0)) {
-        $name = $_POST['name'];
-        $address = $_POST['address'];
-        $salary = $_POST['salary'];
-        $sqlInsert = "UPDATE employees SET name='$name',address='$address',salary=$salary WHERE id = " . (int) $_POST['id'];
+if (isset($_POST['id']) && isset($_POST['ten']) && isset($_POST['giatien']) && isset($_POST['tonkho']) && isset($_POST['nhacungcap'])&& isset($_POST['ngaytao'])) {
+    if ($_POST['ten'] && ($_POST['giatien'] > 0)  && $_POST['nhacungcap'] ) {
+        $ten = $_POST['ten'];
+        $giatien = $_POST['giatien'];
+        $tonkho = $_POST['tonkho'];
+        $nhacungcap = $_POST['nhacungcap'];
+        $sqlInsert = "UPDATE product SET ten='$ten',giatien='$giatien',tonkho='$tonkho' , nhacungcap='$nhacungcap' WHERE id = " . (int) $_POST['id'];
         if (mysqli_query($connection, $sqlInsert)) {
             echo "Update thanh cong";
             /**
@@ -18,6 +22,3 @@ if (isset($_POST['id']) && isset($_POST['name']) && isset($_POST['address']) && 
         }
     }
 }
-echo "<pre>";
-print_r($_POST);
-echo "</pre>";
