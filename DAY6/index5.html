@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <pre>
+            từ khoá COUNT
+            dùng để đếm
+            ví dụ muốn đếm tất cả các bản ghi trong bảng customers
+            SELECT COUNT(id) AS total FROM customers
+            total lúc này sẽ trờ thành 1 cột ảo khi truy vấn
+            hay nói cách khác nó là bí danh nhờ từ khoá AS bí_danh
+
+            từ khoá AVG lấy giá trị trung bình
+            SELECT AVG(list_price) FROM products
+            ví dụ tính giá trung bình của các sản phẩm
+
+
+            Từ khoá SUM() tính tổng
+            ví dụ tính tổng giá của các sản phẩm
+            SELECT SUM(list_price) FROM products
+
+            WHERE CustomerName LIKE 'a%'	tìm tất cả các giá trị bắt đầu là "a"
+            WHERE CustomerName LIKE '%a'	tìm tất cả các giá trị kết thúc là a
+            WHERE CustomerName LIKE '%or%'	tìm tất cả các giá trị chứa "or"
+            WHERE CustomerName LIKE '_r%'	tim tất cả các giá trị mà "r" là chữ thứ 2
+            WHERE CustomerName LIKE 'a_%_%'	tìm tất cả các giá trị bắt đầu là a và có ít nhất 3 ký tự
+            WHERE ContactName LIKE 'a%o'	giá trị bắt đầu là :"a" kết thúc là "o"
+    
+            Ví dụ
+            SELECT * FROM customers WHERE first_name LIKE 'j%'
+            tìm tất cả các khách hàng bắt đầu là chữ j
+
+
+            từ khoá IN cho phép bạn lọc nhiều giá trị trong 1 cột với mệnh đề where
+            từ khoá IN là viết tắt của mệnh đề where or
+            cú pháp :
+    
+            SELECT column_name(s)
+    FROM table_name
+    WHERE column_name IN (value1, value2, ...);
+    
+            ví dụ :
+            SELECT * FROM customers WHERE id IN(2,3,4)
+            lất ra các bản ghi có id là 2 hay 3 hay 4
+       
+             Từ khóa Between (Lấy giá trị trong khoảng)
+            SELECT colum name(s)
+            FROM  table_name
+            WHERE column_name BETWEEN value1 AND value2;
+            ví dụ:
+            SELET * FROM customers WHERE id BETWEEN 1 AND 10
+            lấy ra các bản ghi trong bảng khách hàng có id  từ 1 đén 10
+            
+            Từ khoá GROUP BY được sử dụng để gom nhóm khi có 1 điểm chung vào 1 dòng tóm tắt
+        ví dụ như lấy ra tất cả các khách hàng đến từ mỗi quốc gia
+        Từ khoá GROUP BY thường được dùng cùng các hàm trong SQL như (COUNT, MAX, MIN, SUM, AVG)
+        ví dụ :
+        tính tổng số khách hàng đến từ các thành phố
+        SELECT city , COUNT(id) AS total FROM customers GROUP BY city
+            
+    </pre>
+</body>
+</html>
